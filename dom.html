@@ -1,0 +1,576 @@
+<head> <link rel = "stylesheet"
+    href = "style.css" /></head>
+
+
+<style>
+
+p{
+
+font-size: 35px;
+}
+a{
+
+font-size: 30px;
+}
+
+
+.titre{
+color:rgb(133, 7, 133);
+
+}
+
+
+.info{
+
+color:red;
+}
+
+.info2{
+color:rgb(85, 141, 141);
+font-size: 20px;
+
+}
+
+th { 
+background-color:rgb(17, 29, 189);
+border-width:1px;
+border-style:solid; 
+color:orange;
+border-color:red;
+width:150px;
+height:150px;
+}
+
+body {
+
+background-color:black;
+}
+
+
+
+
+</style>
+
+</head>
+
+<body>
+<!-- java script -->
+
+<!--canvas pioche-->
+
+<canvas id="canvascontenaire1" width="150" height="150"
+style="border:1px solid #d3d3d3;">
+</canvas>
+
+
+<script>
+var canvas1 = document.getElementById("canvascontenaire1");
+
+var ctx1 = canvas1.getContext("2d");
+
+
+ctx1.fillStyle = '#B8A945';
+ctx1.fillRect(0, 0, 75, 75);
+ctx1.fillStyle = '#065372';
+ctx1.fillRect(75, 0, 75, 75);
+ctx1.fillStyle = '#1D570E';
+ctx1.fillRect(0, 75, 75, 75);
+ctx1.fillStyle = '#C25D38';
+ctx1.fillRect(75, 75, 75, 75);
+ctx1.fillStyle = '#FFF';
+
+</script>
+<script>
+
+// j'ai créer un attribut "idchopper" et une variable "iddecase" = "idchopper"
+// quand tu appelles ta fonction draw() tu as juste à lui mettre un attribut (exemple : draw(case1))
+// case1 sera donc egale à iddecase et donc à document.getElementById(case1);
+function draw(idchopper) {
+var iddecase = idchopper;
+var canvascontenaire = document.getElementById(iddecase);
+var ctx = canvascontenaire.getContext("2d");
+// draw background
+
+ctx.fillStyle = '#065372';
+ctx.fillRect(0, 0, 75, 75);
+ctx.fillStyle = '#B8A945';
+ctx.fillRect(75, 0, 75, 75);
+ctx.fillStyle = '#C25D38';
+ctx.fillRect(0, 75, 75, 75);
+ctx.fillStyle = '#1D570E';
+ctx.fillRect(75, 75, 75, 75);
+ctx.fillStyle = '#FFF';
+
+}draw();
+
+</script>
+
+
+
+
+<script>  
+
+  //boite dialog
+function myFunction() {
+
+var first;
+first = prompt('!!! JOUEUR 1: Choisisez DEUX chiffres pour placer votre domino !!')
+//fin boite dialog
+ 
+
+
+//condition 
+
+if (first==1) 
+document.getElementById('case1').getContext('2d').innerHTML = draw("case1");
+// tout ce que j'ai fait c'est donner un attribut à ta fonction draw. et voila.
+if (first==11) 
+document.getElementById('case10').getContext('2d').innerHTML=draw("case10"); 
+if  (first==21)
+document.getElementById('case11').getContext('2d').innerHTML =draw("case11") ; 
+if  (first==31)
+ document.getElementById('case12').getContext('2d').innerHTML =draw("case12");
+if (first==41) 
+ document.getElementById('case13').getContext('2d').innerHTML =draw("case13");
+if  (first==51)
+ document.getElementById('case14').getContext('2d').innerHTML =draw("case14");
+if  (first==61)
+document.getElementById('case15'). getContext('2d').innerHTML =draw("case15");
+if (first==71) 
+document.getElementById('case16').getContext('2d').innerHTML =draw("case16") ; 
+
+if  (first==12)
+document.getElementById('case18').getContext('2d').innerHTML =draw("case18");
+if (first==22) 
+document.getElementById('case19').getContext('2d').innerHTML =draw("case19"); 
+if  (first==32)
+document.getElementById('case20').getContext('2d').innerHTML =draw("case20") ; 
+if  (first==42)
+document.getElementById('case21').getContext('2d').innerHTML =draw("case21");
+if (first==52) 
+document.getElementById('case22').getContext('2d').innerHTML =draw("case22"); 
+if  (first==62)
+document.getElementById('case23').getContext('2d').innerHTML =draw("case23"); 
+if  (first==72)
+
+document.getElementById('case24').getContext('2d').innerHTML =draw("case24") ; 
+if  (first==13)
+document.getElementById('case26').getContext('2d').innerHTML =draw("case26") ; 
+if  (first==23)
+document.getElementById('case27').getContext('2d').innerHTML =draw("case27") ;
+if (first==33) 
+document.getElementById('case28').getContext('2d').innerHTML =draw("case28") ; 
+if  (first==43)
+document.getElementById('case29').getContext('2d').innerHTML =draw("case29") ; 
+if  (first==53)
+document.getElementById('case30').getContext('2d').innerHTML =draw("case30");
+if (first==63) 
+document.getElementById('case31').getContext('2d').innerHTML =draw("case31"); 
+if  (first==73)
+document.getElementById('case32').getContext('2d').innerHTML =draw("case32") ; 
+
+if (first==14) 
+document.getElementById('case34').getContext('2d').innerHTML =draw("case34") ; 
+if  (first==24)
+document.getElementById('case35').getContext('2d').innerHTML =draw("case35") ; 
+if  (first==34)
+document.getElementById('case36').getContext('2d').innerHTML =draw("case36") ;
+if (first==44) 
+document.getElementById('case37').getContext('2d').innerHTML =draw("case37"); 
+if  (first==54)
+document.getElementById('case38').getContext('2d').innerHTML =draw("case38") ; 
+if  (first==64)
+document.getElementById('case39').getContext('2d').innerHTML =draw("case39") ;
+if (first==74) 
+
+document.getElementById('case40').getContext('2d').innerHTML =draw("case40") ; 
+if  (first==15)
+document.getElementById('case42').getContext('2d').innerHTML =draw("case42");
+if (first==25) 
+document.getElementById('case43').getContext('2d').innerHTML =draw("case43") ; 
+if  (first==35)
+document.getElementById('case44').getContext('2d').innerHTML =draw("case44") ; 
+if  (first==45)
+document.getElementById('case45').getContext('2d').innerHTML =draw("case45") ;
+if (first==55) 
+document.getElementById('case46').getContext('2d').innerHTML =draw("case46"); 
+if  (first==65)
+document.getElementById('case47').getContext('2d').innerHTML =draw("case47") ; 
+if  (first==75)
+
+document.getElementById('case48').getContext('2d').innerHTML =draw("case48") ; 
+if  (first==16)
+document.getElementById('case50').getContext('2d').innerHTML =draw("case50") ; 
+if  (first==26)
+document.getElementById('case51').getContext('2d').innerHTML =draw("case51");
+if (first==36) 
+document.getElementById('case52').getContext('2d').innerHTML =draw("case52") ; 
+if  (first==46)
+document.getElementById('case53').getContext('2d').innerHTML =draw("case53") ; 
+if  (first==56)
+document.getElementById('case54').getContext('2d').innerHTML =draw("case54") ;
+if (first==66) 
+document.getElementById('case55').getContext('2d').innerHTML =draw("case55") ; 
+if  (first==76)
+document.getElementById('case56').getContext('2d').innerHTML =draw("case56"); 
+
+if  (first==17)
+document.getElementById('case58').getContext('2d').innerHTML =draw("case58") ; 
+if  (first==27)
+document.getElementById('case59').getContext('2d').innerHTML =draw("case59") ; 
+if  (first==37)
+document.getElementById('case60').getContext('2d').innerHTML =draw("case60") ;
+if (first==47) 
+document.getElementById('case61').getContext('2d').innerHTML =draw("case61") ; 
+if  (first==57)
+document.getElementById('case62').getContext('2d').innerHTML =draw("case62") ; 
+if  (first==67)
+document.getElementById('case63').getContext('2d').innerHTML =draw("case63") ;
+if (first==77) 
+document.getElementById('case64').getContext('2d').innerHTML =draw("case64") ;
+}
+
+
+</script>
+<!--fin condition-->
+
+
+
+<!--titre principal-->
+
+<h1 class="titre"> CARREAU DE WANG : </h1><h1 class="titre"> ATTEINDRE L’ATOME DE L’APÉRIODIQUE ET DU CALCULABLE</h1>
+<!-- boutton a vous de jouer-->
+<button onclick="document.getElementById('demo').innerHTML = myFunction()">CLIQUER POUR JOUER !!!!!</button>
+<!--fin boutton-->
+
+
+<!--boutton couleur fond décran noir-->
+
+<script>
+function fondcolorblack() {
+document.body.style.backgroundColor = "black";
+}
+</script>
+<button type="button" onclick="fondcolorblack()">couleur noir</button>
+<!--fin boutton noir-->
+
+
+
+<!--boutton couleur fond décran blanc-->
+<script>
+function fondcolorblanc() {
+document.body.style.backgroundColor = "ivory";
+}
+</script>
+<button type="button" onclick="fondcolorblanc()">couleur blanc</button>
+<!--fin boutton blanc-->
+
+</div>
+
+
+<div>
+<table>
+
+<tr>
+<th>
+<canvas id="case1" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+</th>
+
+<th id="case2">
+<p>un</p>
+</th>
+<th id="case3">
+<p>deux</p> 
+</th>
+<th id="case4">
+<p>trois</p> 
+</th>
+<th id="case5">
+<p>quatre</p> 
+</th>
+<th id="case6">
+<p>cinq</p>
+</th>
+<th id="case7">
+<p>six</p> 
+</th>
+<th id="case8">
+<p>sept</p>      
+</th>
+
+
+</tr>
+
+
+
+
+<tr>
+<th id="case9">
+<p>un</p> 
+</th>
+<th id="">
+<canvas id="case10" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th id="">
+<canvas id="case11" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th id="">
+     <canvas id="case12" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+ <canvas id="case13" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+   <canvas id="case14" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+   <canvas id="case15" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+<canvas id="case16" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+</tr>
+
+
+
+
+<tr>
+<th  id="case17">
+<p>deux</p> 
+</th>
+<th  id="">
+ <canvas id="case18" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+  <canvas id="case19" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+<canvas id="case20" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+  <canvas id="case21" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+<canvas id="case22" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+  <canvas id="case23" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+  <canvas id="case24" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+</tr>
+
+
+
+
+
+<tr>
+<th  id="case25">
+<p>trois</p> 
+</th>
+<th  id="">
+ <canvas id="case26" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case27" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case28" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case29" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case30" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+<canvas id="case31" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+ <canvas id="case32" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+</tr>
+
+
+
+
+<tr>
+<th  id="case33">
+  <p>quatre</p> 
+</th>
+<th  id="">
+ <canvas id="case34" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+    </th>
+    <th  id="">
+            <canvas id="case35" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+        </th>
+        <th  id="">
+         <canvas id="case36" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+            </th>
+            <th  id="">
+              <canvas id="case37" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+                </th>
+                <th  id="">
+                        <canvas id="case38" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+                    </th>
+                    <th  id="">
+               <canvas id="case39" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+                        </th>
+                        <th  id="">
+                        <canvas id="case40" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+                            </th>
+
+
+
+</tr>
+
+
+
+<div>
+<tr>
+<th  id="case41">
+<p>cinq</p> 
+</th>
+<th  id="">
+    <canvas id="case42" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+             <canvas id="case43" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+    </th>
+    <th  id="">
+           <canvas id="case44" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+ 
+        </th>
+        <th  id="">
+          <canvas id="case45" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+            </th>
+            <th  id="">
+         <canvas id="case46" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+                </th>
+                <th  id="">
+            <canvas id="case47" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+                    </th>
+                    <th  id="">
+                            <canvas id="case48" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+                        </th>
+
+
+
+</tr>
+
+
+
+
+<tr>
+<th  id="case49">
+<p>six</p> 
+</th>
+<th  id="">
+        <canvas id="case50" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+ <canvas id="case51" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case52" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case53" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case54" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case55" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case56" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+</tr>
+
+
+
+
+
+
+<tr  id="case57">
+<th>
+<p>sept</p> 
+</th>
+<th  id="8">
+        <canvas id="case58" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case59" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case60" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+  <canvas id="case61" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+        <canvas id="case62" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+  <canvas id="case63" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+<th  id="">
+ <canvas id="case64" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+
+</th>
+</tr>
+
+
+
+</table>
+</div>
+
+</body>

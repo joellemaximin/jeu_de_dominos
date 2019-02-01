@@ -1,0 +1,305 @@
+<head>
+
+
+<style>
+.container {
+    display: grid;    
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-columns: 55px 50px 50px 50px 50px 50px 50px;
+
+    grid-template-rows: 50px 100px 350px 350px 100px;
+    grid-gap: 5px;
+    grid-template-areas:
+    "l . . . . . . . . . . . ."
+    "h h h h h h h h h h h h h"
+    "m m c c c c c c c c c c c"
+     "r r r r r r r r r r r r r"
+     "f f f f f f f f f f f f f";
+}
+
+
+@media screen and (max-width: 640px) {
+    .container {
+        grid-template-areas:
+        "l l l l l l l l l l l l l"
+
+        "m m m m m m m m m m m m m"
+
+        "h c c c c c c c c c c c c"
+        "h r r r r r r r r r r r r"
+
+        "h f f f f f f f f f f f f";
+    }
+}
+
+
+
+
+.header {
+        grid-area: h;
+        background-color: ivory;
+        text-align: center;
+        color:lightsalmon;
+}
+
+
+.header:hover{
+                background-color: lightgray;
+                color:black;
+}
+
+
+.menu {
+       grid-area: m;
+       background-color:ivory;
+       text-align: center;
+
+}
+
+.menu:hover{
+
+            background-color: lightgray;
+            color:black;
+
+
+}
+.content {
+          grid-area: c;
+          background-color:#13CE66;
+          border: 5px solid #EFF2F7;
+
+          text-align:center;
+          font-size: 26px;
+          font-family: Lato;
+          overflow:scroll;
+}
+
+.content2 {
+            grid-area: r;
+            background-color:#13CE66;
+            border: 5px solid #CCB3A6;
+
+            text-align:center;
+            font-family: Lato;
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 33px;
+            overflow:auto;
+}
+.footer {
+         grid-area: f;
+         background-color:ivory;
+         color:lightsalmon;
+         text-align: center;
+}
+
+
+
+.footer:hover{
+                background-color: lightgray;
+                color:black;
+
+}
+.button {
+         background-color:#316F3F;
+         border:  dashed white;
+         color: white;
+         padding: 15px 15px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 4px 2px;
+         cursor: pointer;
+         width:60px;
+        
+}
+.button:hover{
+              border:10px #CCB3A6;
+              border: dashed #CCB3A6;
+              -ms-transform: scale(1.5); /* IE 9 */
+               -webkit-transform: scale(1.5); /* Safari 3-8 */
+               transform: scale(1.5)
+
+}
+
+.login{
+          grid-area: l;
+          background-color: #9E2084;
+          border: 5px solid #CCB3A6;
+          color: #C3CBCF;
+          text-align: center;
+          font-family: Lato;
+
+}
+
+.login:hover{
+          background-color: lightgray;
+          color:black;
+
+}
+
+
+
+
+.img{
+            width: 232px;
+             height: 174px;
+             border-radius: 32px;
+             background-color:cornsilk;
+             justify-content: center;
+             overflow:scroll;
+}
+
+.img2{
+             border: 5px solid #CCB3A6;
+             width: 385.44px;
+             height: 292px;
+             float:left;
+             overflow:auto;
+
+}
+img:hover{
+
+-ms-transform: scale(1.5); /* IE 9 */
+           -webkit-transform: scale(1.5); /* Safari 3-8 */
+           transform: scale(1.5)
+}
+
+h3{
+    background-color: #20759E;
+    text-align:"center";
+    border: 5px solid #CCB3A6;
+    margin:auto; 
+    color: #C3CBCF;
+    font-family: Lato;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 33px;
+    width: 200px;
+
+}
+
+
+.button2 {
+         background-color:#9E2084;
+  
+         color: white;
+         padding: 15px 15px;
+         text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width:5px;
+        height:5px;
+}
+
+
+
+.button2:hover{
+                 background-color: rgb(212, 156, 196);
+                 color:black;
+                 -ms-transform: scale(1.5); /* IE 9 */
+                -webkit-transform: scale(1.5); /* Safari 3-8 */
+                transform: scale(4)
+
+}
+
+
+
+
+
+
+
+
+
+
+.dropbtn {
+  background-color: rgb(99, 105, 99);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  float:right;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
+</style>
+</head>
+
+
+ <body>
+ <div class="container">
+       <div class="header"><a href="#foot">HEADER vers FOOTER</div>
+       <div class="menu"><a class="button" href="https://www.w3schools.com/howto/howto_css_zoom_hover.asp">Les randoneur</a><a class="button"  href="https://medium.freecodecamp.org/how-to-prototype-websites-quickly-with-css-grid-ffc9cba08583">Les pilotes</a><a class="button" href="https://medium.freecodecamp.org/learn-css-grid-in-5-minutes-f582e87b1228">Les alpinistes</a></div>
+       <div class="content"><a href="Simplonpass1.jpg" target="_blank"><img class="img" src="Simplonpass1.jpg"></a>
+           <h3 class="h3">le col du simplon</h3> <p>Le col du Simplon est un col des Alpes situé en Valais. Culminant à 2 008 mètres, il est ouvert toute l'année et fait partie intégrante de la route nationale H9 menant de Brigue à Stresa, en Italie. Long de 62 kilomètres, il a une déclivité de 9 %. Contrairement au col du Grand-Saint-Bernard fermé plusieurs mois par an, la route du Simplon est
+                </p>
+       </div>
+       <div class="footer"><a href="#" id="foot">FOOTER vers HEADER</a></div>
+
+
+
+
+
+       <div class="content2">
+           <div><a href ="Geo_Chavez.jpg" target="_blank"><img class="img2" src="Geo_Chavez.jpg"></a> <p>Jorge Antonio Chávez Dartnell (January 13, 1887 – September 27, 1910), also known as Géo Chávez, was a Peruvian aviator. At a young age, he achieved fame for his aeronautical feats. He died in 1910 after a heavy wind broke the wings of his fragile airplane Bleriot XI, falling from a twenty meter height upon landing, after achieving the first air crossing of the Alps.
+        </p></div>
+
+
+
+        <div class="dropdown">
+
+                <button class="dropbtn">inormations pilotes</button>
+                <div class="dropdown-content">
+        
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                </div>
+                </div>
+            </div>
+        
+
+
+
+
+        <div class="login"><a class="button2" href="https://css-tricks.com/dont-overthink-it-grids/">log</a></div>
+    </div>
+ 
+</body>
+

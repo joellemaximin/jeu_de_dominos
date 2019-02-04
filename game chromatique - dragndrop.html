@@ -1,0 +1,1227 @@
+<head> 
+        
+    <style>
+
+.container {
+    display: grid;
+    grid-gap: 5px;    
+    background-color:black;
+
+    grid-template-columns:  repeat(13, 1fr);
+    grid-template-rows: 150px 950px 200px;
+    grid-template-areas:
+        ". h h h h h h h h h h h ."
+        "m m c c c c c c c c c c c"
+        ". f f f f f f f f f f f .";
+}
+@media screen and (max-width: 990px) {
+    .container {
+        grid-template-columns: 100px;
+
+        grid-template-rows: 200px 950px 200px;
+        grid-template-areas:
+            "m m m m m m h h h h h h h "
+            "c c c c c c c c c c c c c"
+            "f f f f f f f f f f f f f";
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        grid-template-columns: 100px;
+
+        grid-template-rows: 300px 950px 300px;
+
+        grid-template-areas:
+            "h h h h h h h h h h h h h"
+            "c c c c c c c c c c c c c"
+            "m m f f f f f f f f f f f";
+    }
+}
+.header {
+    grid-area: h;
+    color:rgb(12, 12, 12);
+    background:rgb(3, 76, 100);
+    background:url(chromatique.gif);
+    text-align:center;
+}
+.menu {
+    grid-area: m;
+    background-color:#52782D;
+    text-align:center;
+
+}
+.content {
+    grid-area: c;
+    background-color:darkcyan;
+    text-align:center;
+    justify-content: right;
+    
+
+}
+.footer {
+    font-size: 20px;
+    color:ivory;
+   grid-area: f;
+   background-color:rgb(10, 87, 112);
+   text-align:center;
+
+}
+a {
+  color: rgb(14, 206, 240);
+}
+
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(18, 19, 19, 0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:2;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	color:rgb(207, 22, 22);
+	width: 700px;
+	height:400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 10px 20px 13px 20px;
+
+	border-radius: 10px;
+	background: rgb(223, 216, 224);
+	background: -moz-linear-gradient(rgb(237, 241, 239), rgb(143, 139, 143));
+	background: -webkit-linear-gradient(rgb(228, 226, 228), rgb(100, 95, 100));
+	background: -o-linear-gradient(rgb(226, 222, 226), rgb(155, 150, 154));
+
+}
+
+.close {
+	background: #840ab4;
+	color: rgb(233, 228, 236);
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
+#modal{
+	background:url(chromatique.gif);
+}
+
+
+.boutonmenuprincipal {
+background-color: #e83737;
+color: white;
+border: none;
+cursor: pointer;
+padding:20px;
+margin-top:10px;
+font-size: 15px;
+}
+.boutonmenuprincipal:hover {
+background-color: #ceafaf;
+
+}
+.dropdown {
+position: relative;
+display: inline-block;
+}
+.dropdown-child {
+display: none;
+background-color: #f28c8c;
+min-width: 50px;
+}
+.dropdown-child a {
+color: white;
+padding: 20px;
+text-decoration: none;
+display: block;
+}
+.dropdown:hover .dropdown-child {
+display: block;
+}
+
+th { 
+background-color:rgb(17, 29, 189);
+border-width:1px;
+border-style:solid; 
+color:orange;
+border-color:red;
+width:50px;
+height:50px;
+
+}
+
+.headertitre{
+background-color:black;
+color:ivory;
+}
+
+
+
+#div1 {
+   
+         border: 1px solid #da0c0c;
+   width:600px;
+ }
+ 
+
+
+
+
+ .div4 {
+   
+        padding: 22px;
+         border: 1px solid #320ed3;
+         width:800px;
+        height:100px;
+   
+ }
+
+
+ 
+
+
+th { 
+      background-color:rgb(44, 235, 101);
+      border-width:1px;
+      border-style:solid; 
+      border-color:rgb(59, 14, 44);
+      width:50px;
+      height:50px;
+      padding:0px;
+      top:0px;
+      bottom:0px;
+ 
+ }
+
+
+tr{
+
+}
+
+table{
+
+}
+</style>
+
+
+     </head>
+
+
+<body>
+
+<!--dafg and drop-->
+<script>
+		function allowDrop(ev) {
+							   ev.preventDefault();
+		}
+		
+		function drag(ev) {
+						  ev.dataTransfer.setData("text", ev.target.id);
+		}
+		
+		function drop(ev) {
+						   ev.preventDefault();
+						  var data = ev.dataTransfer.getData("text");
+						   ev.target.appendChild(document.getElementById(data));
+		}
+		</script>
+		<!--fin du drag and  drop-->
+		
+	
+		
+    <!--contenaire-->
+        <div class="container">
+
+
+
+            <!--header-->
+  <div class="header"><h1 class="headertitre">Dominos (tuiles) chromatiques</h1></br>
+  </div>
+
+<!--menu-->
+  <div class="menu">
+<!--boutton départ jeux-->
+    
+<a href="#openModal"><button class="boutonmenuprincipal">JOUER</button></a></br>
+<a href="http://www.jlsigrist.com/carrechrosol.html" target="_blank"><button class="boutonmenuprincipal">Solutions</button></a>
+  </div>
+    
+
+<!--content-->
+  <div class="content"></br>
+
+	
+
+<!--modal page-->
+<div id="openModal" class="modalDialog">
+        <div id="modal">
+            
+            <a href="#close" title="Close" class="close"></a>
+            
+            
+            <div class="dropdown">
+                    <button class="boutonmenuprincipal">Nombre de joueur</button>
+                    <div class="dropdown-child">
+                        <a href="#close">Deux joueurs</a>
+                        <a href="#close">Quatre joueurs</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!--fin modal  page-->
+
+
+			
+
+		
+		
+		<!--tables de jeux-->
+		
+		<div   id="div1" >
+			  <table  id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+			   
+			  <tr  >
+			  
+			  <th >
+			  
+			  </th>
+			  
+			  <th  >
+			   
+			  </th>
+			   <th id=""  >
+				 
+			   
+			  </th>
+			  <th id="case4">
+			  
+			   </th>
+			  <th id="case5">
+			  
+			   </th>
+			  <th id="case6">
+			  
+			  </th>
+			  <th id="case7">
+			   
+			   </th>
+			   <th id="case8">
+			   
+			  </th>
+			
+			  
+			  <th id="case9">
+			  
+			  </th>
+			   <th id="case10">
+			  
+			   </th>
+			  <th id="case11">
+			   
+			  </th>
+			  <th id="case12">
+			  
+			
+				</tr>
+			   
+							
+				<tr>
+				
+					  <th id="case1">
+					  
+					  </th>
+					  
+					  <th id="case2">
+					   
+					  </th>
+					 <th id="case3">
+					 
+					</th>
+					<th id="case4">
+					
+					 </th>
+					<th id="case5">
+					
+					 </th>
+					<th id="case6">
+					
+					</th>
+					<th id="case7">
+					 
+					 </th>
+					 <th id="case8">
+					   
+					</th>
+					
+		
+					<th id="case9">
+					
+					</th>
+					 <th id="case10">
+					
+					 </th>
+					<th id="case11">
+					 
+					</th>
+					<th id="case12">
+					
+					</th>
+					
+					 </tr>
+					<tr>
+			  
+						  <th id="case1">
+						  
+						  </th>
+						  
+						  <th id="case2">
+						   
+						  </th>
+						   <th id="case3">
+						   
+						  </th>
+						  <th id="case4">
+						  
+						   </th>
+						  <th id="case5">
+						  
+						   </th>
+						  <th id="case6">
+						  
+						  </th>
+						  <th id="case7">
+							
+						   </th>
+						   <th id="case8">
+							  
+						  </th>
+						  
+		
+						  
+						  <th id="case9">
+						  
+						  </th>
+						   <th id="case10">
+						  
+						   </th>
+						  <th id="case11">
+						   
+						  </th>
+						  <th id="case12">
+						  
+						  </th>
+						  
+					
+						  </tr>
+			 
+						  
+						  <tr>
+			  
+								<th id="case1">
+								
+								</th>
+								
+								<th id="case2">
+								 
+								</th>
+								 <th id="case3">
+								 
+								</th>
+								<th id="case4">
+								
+								 </th>
+								<th id="case5">
+								
+								 </th>
+								<th id="case6">
+								
+								</th>
+								<th id="case7">
+								 
+								 </th>
+								 <th id="case8">
+									 
+								</th>
+								
+		
+								
+								<th id="case9">
+								
+								</th>
+								 <th id="case10">
+								
+								 </th>
+								<th id="case11">
+								 
+								</th>
+								<th id="case12">
+								
+								</th>
+								
+								
+								</tr>
+			 
+								
+								<tr>
+			  
+									  <th id="case1">
+									  
+									  </th>
+									  
+									  <th id="case2">
+									   
+									  </th>
+									   <th id="case3">
+									   
+									  </th>
+									  <th id="case4">
+									  
+									   </th>
+									  <th id="case5">
+									  
+									   </th>
+									  <th id="case6">
+									  
+									  </th>
+									  <th id="case7">
+									   
+									   </th>
+									   <th id="case8">
+										
+									  </th>
+									  
+									  
+
+									  <th id="case9">
+									  
+									  </th>
+									   <th id="case10">
+									  
+									   </th>
+									  <th id="case11">
+										
+									  </th>
+									  <th id="case12">
+									  
+									  </th>
+									 
+
+									   
+									  </tr>
+			 
+									  
+									  <tr>
+			  
+											<th id="case1">
+											
+											</th>
+											
+											<th id="case2">
+											 
+											</th>
+											 <th id="case3">
+											 
+											</th>
+											<th id="case4">
+											
+											 </th>
+											<th id="case5">
+											
+											 </th>
+											<th id="case6">
+											
+											</th>
+											<th id="case7">
+											  
+											 </th>
+											 <th id="case8">
+												 
+											</th>
+											
+			
+											
+											<th id="case9">
+											
+											</th>
+											 <th id="case10">
+											
+											 </th>
+											<th id="case11">
+											  
+											</th>
+											<th id="case12">
+											
+											</th>
+											
+		
+											</tr>
+			 
+											
+											<tr>
+			  
+												  <th id="case1">
+												  
+												  </th>
+												  
+												  <th id="case2">
+												   
+												  </th>
+												   <th id="case3">
+												   
+												  </th>
+												  <th id="case4">
+												  
+												   </th>
+												  <th id="case5">
+												  
+												   </th>
+												  <th id="case6">
+												  
+												  </th>
+												  <th id="case7">
+												   
+												   </th>
+												   <th id="case8">
+													  
+												  </th>
+												  
+							
+												  
+												  <th id="case9">
+												  
+												  </th>
+												   <th id="case10">
+												  
+												   </th>
+												  <th id="case11">
+												   
+												  </th>
+												  <th id="case12">
+												  
+												  </th>
+												  
+	
+												
+												  </tr>
+			 
+												  
+												  <tr>
+			  
+														<th id="case1">
+														
+														</th>
+														
+														<th id="case2">
+														 
+														</th>
+														 <th id="case3">
+														  
+														</th>
+														<th id="case4">
+														
+														 </th>
+														<th id="case5">
+														 
+														 </th>
+														<th id="case6">
+														
+														</th>
+														<th id="case7">
+														 
+														 </th>
+														 <th id="case8">
+															 
+														</th>
+														
+					
+														
+														<th id="case9">
+														
+														</th>
+														 <th id="case10">
+														
+														 </th>
+														<th id="case11">
+														 
+														</th>
+														<th id="case12">
+														
+														</th>
+														
+														
+													
+														</tr>
+			 
+														
+														<tr>
+			  
+															  <th id="case1">
+															  
+															  </th>
+															  
+															  <th id="case2">
+															   
+															  </th>
+															   <th id="case3">
+															   
+															  </th>
+															  <th id="case4">
+															  
+															   </th>
+															  <th id="case5">
+															  
+															   </th>
+															  <th id="case6">
+															  
+															  </th>
+															  <th id="case7">
+															   
+															   </th>
+															   <th id="case8">
+																  
+															  </th>
+															  
+										
+															  
+															  <th id="case9">
+															  
+															  </th>
+															   <th id="case10">
+															  
+															   </th>
+															  <th id="case11">
+															   
+															  </th>
+															  <th id="case12">
+															  
+															  </th>
+															  
+						
+															 
+															  </tr>
+			 
+															  
+															  <tr>
+			  
+																	<th id="case1">
+																	
+																	</th>
+																	
+																	<th id="case2">
+																	 
+																	</th>
+																	 <th id="case3">
+																	 
+																	</th>
+																	<th id="case4">
+																	
+																	 </th>
+																	<th id="case5">
+																	
+																	 </th>
+																	<th id="case6">
+																	
+																	</th>
+																	<th id="case7">
+																	 
+																	 </th>
+																	 <th id="case8">
+																	   
+																	</th>
+																		
+																	<th id="case9">
+																	
+																	</th>
+																	 <th id="case10">
+																	
+																	 </th>
+																	<th id="case11">
+																	 
+																	</th>
+																	<th id="case12">
+																	
+																	</th>
+																	
+														
+																	</tr>
+																	<tr>
+			  
+																			<th id="case1">
+																			
+																			</th>
+																			
+																			<th id="case2">
+																			 
+																			</th>
+																			 <th id="case3">
+																			 
+																			</th>
+																			<th id="case4">
+																			
+																			 </th>
+																			<th id="case5">
+																			
+																			 </th>
+																			<th id="case6">
+																			
+																			</th>
+																			<th id="case7">
+																			 
+																			 </th>
+																			 <th id="case8">
+																			   
+																			</th>
+																				
+																			<th id="case9">
+																			
+																			</th>
+																			 <th id="case10">
+																			
+																			 </th>
+																			<th id="case11">
+																			 
+																			</th>
+																			<th id="case12">
+																			
+																			</th>
+																			
+																
+																			</tr>
+																			<tr>
+			  
+																					<th id="case1">
+																					
+																					</th>
+																					
+																					<th id="case2">
+																					 
+																					</th>
+																					 <th id="case3">
+																					 
+																					</th>
+																					<th id="case4">
+																					
+																					 </th>
+																					<th id="case5">
+																					
+																					 </th>
+																					<th id="case6">
+																					
+																					</th>
+																					<th id="case7">
+																					 
+																					 </th>
+																					 <th id="case8">
+																					   
+																					</th>
+																						
+																					<th id="case9">
+																					
+																					</th>
+																					 <th id="case10">
+																					
+																					 </th>
+																					<th id="case11">
+																					 
+																					</th>
+																					<th id="case12">
+																					
+																					</th>
+																					
+																		
+																					</tr>	   
+			 
+			  
+			  </table>
+			  </div>
+		
+		
+		
+</br>
+
+
+
+
+<!--pioche-->
+
+<h1>Pioche</h1>
+
+<div class="div4" >
+		<!--canvas contenair16-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire16" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+		<!--canvas contenair15-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire15" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+		<!--canvas contenair14-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire14" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+		<!--canvas contenair13-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire13" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+	<!--canvas contenair12-->
+
+	<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire12" width="50" height="50"
+	style="border:1px solid #d3d3d3;">
+	</canvas>
+		<!--canvas contenair11-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire11" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+		<!--canvas contenair10-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire10" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+	
+	<!--canvas contenair9-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire9" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+	<!--canvas contenair8-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire8" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+
+	<!--canvas contenair7-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire7" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+<!--canvas contenair6-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire6" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+
+	<!--canvas contenair5-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire5" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+
+<!--canvas contenair4-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire4" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+<!--canvas contenair3-->
+
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire3" width="50" height="50"
+		style="border:1px solid #d3d3d3;">
+		</canvas>
+<!--canvas contenair2-->
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire2" width="50" height="50"
+		style="border:1px solid #d3d3d3;">
+		</canvas>
+			<!--canvas contenair1-->
+<canvas  draggable="true" ondragstart="drag(event)" width="50" height="50" id="canvascontenaire1" width="50" height="50"
+style="border:1px solid #d3d3d3;">
+</canvas>
+	
+
+
+</div>
+
+</div>
+<!--div fin content-->
+
+</br></br>
+<!--fin -->
+
+<!--canvas-->
+<script>
+		//CANVAS 16
+var canvas16 = document.getElementById("canvascontenaire16");
+
+var ctx16 = canvas16.getContext("2d");
+
+ctx16.fillStyle = "white";
+ctx16.fillRect(0, 0, 25, 25);
+ctx16.fillStyle = "white";
+ctx16.fillRect(25, 0, 25, 25);
+ctx16.fillStyle = "white";
+ctx16.fillRect(0, 25, 25, 25);
+ctx16.fillStyle = "white";
+ctx16.fillRect(25, 25, 25, 25);
+ctx16.fillStyle = '#FFF';
+
+		//CANVAS 15
+var canvas15 = document.getElementById("canvascontenaire15");
+
+var ctx15 = canvas15.getContext("2d");
+
+ctx15.fillStyle = "white";
+ctx15.fillRect(0, 0, 25, 25);
+ctx15.fillStyle = "white";
+ctx15.fillRect(25, 0, 25, 25);
+ctx15.fillStyle = "white";
+ctx15.fillRect(0, 25, 25, 25);
+ctx15.fillStyle = "black";
+ctx15.fillRect(25, 25, 25, 25);
+ctx15.fillStyle = '#FFF';
+
+		//CANVAS 14
+var canvas14 = document.getElementById("canvascontenaire14");
+
+var ctx14 = canvas14.getContext("2d");
+
+ctx14.fillStyle = "white";
+ctx14.fillRect(0, 0, 25, 25);
+ctx14.fillStyle = "white";
+ctx14.fillRect(25, 0, 25, 25);
+ctx14.fillStyle = "black";
+ctx14.fillRect(0, 25, 25, 25);
+ctx14.fillStyle = "white";
+ctx14.fillRect(25, 25, 25, 25);
+ctx14.fillStyle = '#FFF';
+
+		//CANVAS 13
+var canvas13 = document.getElementById("canvascontenaire13");
+
+var ctx13 = canvas13.getContext("2d");
+
+ctx13.fillStyle = "white";
+ctx13.fillRect(0, 0, 25, 25);
+ctx13.fillStyle = "white";
+ctx13.fillRect(25, 0, 25, 25);
+ctx13.fillStyle = "black";
+ctx13.fillRect(0, 25, 25, 25);
+ctx13.fillStyle = "black";
+ctx13.fillRect(25, 25, 25, 25);
+ctx13.fillStyle = '#FFF';
+
+		//CANVAS 12
+var canvas12 = document.getElementById("canvascontenaire12");
+
+var ctx12 = canvas12.getContext("2d");
+
+ctx12.fillStyle = "white";
+ctx12.fillRect(0, 0, 25, 25);
+ctx12.fillStyle = "black";
+ctx12.fillRect(25, 0, 25, 25);
+ctx12.fillStyle = "white";
+ctx12.fillRect(0, 25, 25, 25);
+ctx12.fillStyle = "white";
+ctx12.fillRect(25, 25, 25, 25);
+ctx12.fillStyle = '#FFF';
+
+		//CANVAS 11
+var canvas11 = document.getElementById("canvascontenaire11");
+
+var ctx11 = canvas11.getContext("2d");
+
+ctx11.fillStyle = "white";
+ctx11.fillRect(0, 0, 25, 25);
+ctx11.fillStyle = "black";
+ctx11.fillRect(25, 0, 25, 25);
+ctx11.fillStyle = "white";
+ctx11.fillRect(0, 25, 25, 25);
+ctx11.fillStyle = "black";
+ctx11.fillRect(25, 25, 25, 25);
+ctx11.fillStyle = '#FFF';
+
+	//CANVAS 10
+var canvas10 = document.getElementById("canvascontenaire10");
+
+var ctx10 = canvas10.getContext("2d");
+
+ctx10.fillStyle = "white";
+ctx10.fillRect(0, 0, 25, 25);
+ctx10.fillStyle = "black";
+ctx10.fillRect(25, 0, 25, 25);
+ctx10.fillStyle = "black";
+ctx10.fillRect(0, 25, 25, 25);
+ctx10.fillStyle = "white";
+ctx10.fillRect(25, 25, 25, 25);
+ctx10.fillStyle = '#FFF';
+
+	//CANVAS 9
+var canvas9 = document.getElementById("canvascontenaire9");
+
+var ctx9 = canvas9.getContext("2d");
+
+ctx9.fillStyle = "white";
+ctx9.fillRect(0, 0, 25, 25);
+ctx9.fillStyle = "black";
+ctx9.fillRect(25, 0, 25, 25);
+ctx9.fillStyle = "black";
+ctx9.fillRect(0, 25, 25, 25);
+ctx9.fillStyle = "black";
+ctx9.fillRect(25, 25, 25, 25);
+ctx9.fillStyle = '#FFF';
+	//CANVAS 8
+var canvas8 = document.getElementById("canvascontenaire8");
+
+var ctx8 = canvas8.getContext("2d");
+
+ctx8.fillStyle = "black";
+ctx8.fillRect(0, 0, 25, 25);
+ctx8.fillStyle = "white";
+ctx8.fillRect(25, 0, 25, 25);
+ctx8.fillStyle = "white";
+ctx8.fillRect(0, 25, 25, 25);
+ctx8.fillStyle = "white";
+ctx8.fillRect(25, 25, 25, 25);
+ctx8.fillStyle = '#FFF';
+	//CANVAS 7
+var canvas7 = document.getElementById("canvascontenaire7");
+
+var ctx7 = canvas7.getContext("2d");
+
+ctx7.fillStyle = "black";
+ctx7.fillRect(0, 0, 25, 25);
+ctx7.fillStyle = "white";
+ctx7.fillRect(25, 0, 25, 25);
+ctx7.fillStyle = "white";
+ctx7.fillRect(0, 25, 25, 25);
+ctx7.fillStyle = "black";
+ctx7.fillRect(25, 25, 25, 25);
+ctx7.fillStyle = '#FFF';
+
+	//CANVAS 6
+var canvas6 = document.getElementById("canvascontenaire6");
+
+var ctx6 = canvas6.getContext("2d");
+
+ctx6.fillStyle = "black";
+ctx6.fillRect(0, 0, 25, 25);
+ctx6.fillStyle = "white";
+ctx6.fillRect(25, 0, 25, 25);
+ctx6.fillStyle = "black";
+ctx6.fillRect(0, 25, 25, 25);
+ctx6.fillStyle = "white";
+ctx6.fillRect(25, 25, 25, 25);
+ctx6.fillStyle = '#FFF';
+
+//CANVAS 5
+var canvas5 = document.getElementById("canvascontenaire5");
+
+var ctx5 = canvas5.getContext("2d");
+
+ctx5.fillStyle = "black";
+ctx5.fillRect(0, 0, 25, 25);
+ctx5.fillStyle = "white";
+ctx5.fillRect(25, 0, 25, 25);
+ctx5.fillStyle = "black";
+ctx5.fillRect(0, 25, 25, 25);
+ctx5.fillStyle = "black";
+ctx5.fillRect(25, 25, 25, 25);
+ctx5.fillStyle = '#FFF';
+
+//CANVAS 4
+		var canvas4 = document.getElementById("canvascontenaire4");
+			var ctx4 = canvas4.getContext("2d");
+			
+			ctx4.fillStyle = "black";
+			ctx4.fillRect(0, 0, 25, 25);
+			ctx4.fillStyle = "black";
+			ctx4.fillRect(25, 0, 25, 25);
+			ctx4.fillStyle = "white";
+			ctx4.fillRect(0, 25, 25, 25);
+			ctx4.fillStyle = "white";
+			ctx4.fillRect(25, 25, 25, 25);
+			ctx4.fillStyle = '#FFF';
+
+
+			//CANVAS 3
+var canvas3 = document.getElementById("canvascontenaire3");
+
+var ctx3 = canvas3.getContext("2d");
+
+ctx3.fillStyle = "black";
+ctx3.fillRect(0, 0, 25, 25);
+ctx3.fillStyle = "black";
+ctx3.fillRect(25, 0, 25, 25);
+ctx3.fillStyle = "white";
+ctx3.fillRect(0, 25, 25, 25);
+ctx3.fillStyle = "black";
+ctx3.fillRect(25, 25, 25, 25);
+ctx3.fillStyle = '#FFF';
+
+        //CANVAS 2
+		var canvas2 = document.getElementById("canvascontenaire2");
+
+var ctx2 = canvas2.getContext("2d");
+
+ctx2.fillStyle = "black";
+ctx2.fillRect(0, 0, 25, 25);
+ctx2.fillStyle = "black";
+ctx2.fillRect(25, 0, 25, 25);
+ctx2.fillStyle = "black";
+ctx2.fillRect(0, 25, 25, 25);
+ctx2.fillStyle = "white";
+ctx2.fillRect(25, 25, 25, 25);
+ctx2.fillStyle = '#FFF';
+
+       //CANVAS 1
+	   var canvas1 = document.getElementById("canvascontenaire1");
+var ctx1 = canvas1.getContext("2d");
+
+ctx1.fillStyle = "black";
+ctx1.fillRect(0, 0, 25, 25);
+ctx1.fillStyle = "black";
+ctx1.fillRect(25, 0, 25, 25);
+ctx1.fillStyle = "black";
+ctx1.fillRect(0, 25, 25, 25);
+ctx1.fillStyle = "black";
+ctx1.fillRect(25, 25, 25, 25);
+ctx1.fillStyle = '#FFF';
+
+			</script>
+
+
+		
+    
+
+<!--footer-->
+  <div class="footer"><h1></h1>
+<a href="http://images.math.cnrs.fr/Du-carreau-de-Truchet-au-carreau-de-Wang-atteindre-l-atome-de-l-aperiodique-et.html" target="_blank">Du-carreau-de-Truchet-au-carreau-de-Wang-atteindre-l-atome-de-l-aperiodique</a></br>
+<a href="http://pauillac.inria.fr/~levy/pubs/11quadrature.pdf" target="_blank">Dominos de Wang</a></br>
+<a href="http://images.math.cnrs.fr/Dominos-aperiodiques.html" target="_blank">Dominos aperiodiques</a></br>
+<a href="https://fr.wikipedia.org/wiki/Wang_Hao_(logicien)" target="_blank">Wang Hao logicien</a></br>
+<a href="http://math.en.jeux.chez-alice.fr/mosaiques/carrechromatique/carrechroma1.htm"target="_blank">Carré chromatique</a></br>
+<a href="https://www.mathcurve.com/fractals/sierpinski/carresierpinski.shtml" target="_blank" >Carre sierpinski</a></div>
+</div>
+
+
+
+
+</body>
